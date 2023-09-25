@@ -23,6 +23,8 @@ export default function Home() {
   });
 
   const router = useRouter(); // Inicializa el enrutador de Next.js
+  const [identification, setIdentification] = useState('');
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,6 +46,9 @@ export default function Home() {
       const birthdate = new Date(value);
       const eighteenYearsAgo = new Date();
       eighteenYearsAgo.setFullYear(eighteenYearsAgo.getFullYear() - 18);
+      
+      
+
 
       if (birthdate > eighteenYearsAgo) {
         setBirthdateError("Debes ser mayor de 18 años para registrarte.");
@@ -96,6 +101,8 @@ export default function Home() {
       }
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
+      console.log(error.response.data);
+      setError(error.response.data); // Establecer el mensaje de error en el estado
     }
   };
 
@@ -358,6 +365,7 @@ export default function Home() {
                 className="mr-2 leading-tight"
                 required
               />
+              
               Acepto los términos y condiciones del AWS UG Ecuador y el Código
               de conducta del evento.
               <br />
@@ -379,6 +387,8 @@ export default function Home() {
               </a>
             </label>
           </div>
+          {error && ( <p className="text-red-700">{error}</p> )}
+          <br/>
           {/* Resto de tu formulario */}
           <div className="mb-4">
             <button
