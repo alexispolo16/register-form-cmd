@@ -40,6 +40,19 @@ export default function Home() {
         }
       }
 
+      if (name === 'birthdate') {
+        // Validar edad mínima de 18 años
+        const birthdate = new Date(value);
+        const eighteenYearsAgo = new Date();
+        eighteenYearsAgo.setFullYear(eighteenYearsAgo.getFullYear() - 18);
+  
+        if (birthdate > eighteenYearsAgo) {
+          setBirthdateError('Debes ser mayor de 18 años para registrarte.');
+        } else {
+          setBirthdateError('');
+        }
+      }
+
   };
 
   const handleSubmit = async (e) => {
@@ -87,6 +100,8 @@ export default function Home() {
   const [countryList, setCountryList] = useState([]);
   const [selectedCity, setSelectedCity] = useState('');
   const [citySelectDisabled, setCitySelectDisabled] = useState(true);
+  const [birthdateError, setBirthdateError] = useState(''); // Estado para el mensaje de error
+
 
 
   useEffect(() => {
@@ -173,7 +188,11 @@ export default function Home() {
                 />
             </div>
             <div className="w-full mb-4">
-                <label htmlFor="birthdate" className="block text-gray-700">Fecha de Nacimiento:</label>
+                <label htmlFor="birthdate" className="block text-gray-700">Fecha de Nacimiento:<br/>
+                {birthdateError && (
+                    <span className="text-red-600 ml-2">{birthdateError}</span>
+                )}
+                </label>
                 <input
                     type="date"
                     id="birthdate"
@@ -282,30 +301,7 @@ export default function Home() {
               />
             </div> 
           )}
-          {formData.userType !== 'Estudiante' && (
-            <div className="mb-4">
-              <label htmlFor="userType" className="block text-gray-700">Tipo de usuario:</label>
-            <select
-              id="userType"
-              name="userType"
-              value={formData.userType}
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
-            >
-            <option value="">Seleccione una opción</option>
-            <option value="Académico / Investigación">Académico / Investigación</option>
-            <option value="Consejero / Consultor">Consejero / Consultor</option>
-            <option value="Ejecutivo de negocio">Ejecutivo de negocio</option>
-            <option value="Developer">Developer</option>
-            <option value="Emprendedor (Fundador/Co-fundador)">Emprendedor (Fundador/Co-fundador)</option>
-            <option value="Profesional IT / Manager técnico">Profesional IT / Manager técnico</option>
-            <option value="Ventas / Marketing">Ventas / Marketing</option>
-            <option value="Arquitecto de soluciones o sistemas">Arquitecto de soluciones o sistemas</option>
-            <option value="Estudiante">Estudiante</option>
-            <option value="Administrador del sistema">Administrador del sistema</option>
-            </select>
-            </div> 
-          )}
+          
           <div className="mb-4">
   <label htmlFor="terms" className="block text-gray-700">
     <input
