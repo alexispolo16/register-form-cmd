@@ -23,7 +23,6 @@ export default function Home() {
   });
 
   const router = useRouter(); // Inicializa el enrutador de Next.js
-  const [identification, setIdentification] = useState('');
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
@@ -178,6 +177,8 @@ export default function Home() {
                 value={formData.cedula}
                 onChange={handleChange}
                 required
+                pattern="[0-9]{8,11}"
+                title="La cédula es un campo único y será validado al momento de ingresar al evento."
                 className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
               />
             </div>
