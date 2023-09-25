@@ -19,6 +19,7 @@ export default function Home() {
     company: '',
     country:'',
     city:'',
+    birthdate: '',
     terms:''
   });
 
@@ -38,6 +39,7 @@ export default function Home() {
           setSelectedCity(''); // Reinicia la selección de la ciudad si el país no es Ecuador
         }
       }
+
   };
 
   const handleSubmit = async (e) => {
@@ -53,6 +55,7 @@ export default function Home() {
           cedula: formData.cedula,
           nombre: formData.firstName,
           apellido: formData.lastName,
+          birthdate: formData.birthdate,
           telefono: formData.phone,
           pais: formData.country,
           ciudad: formData.city,
@@ -167,6 +170,19 @@ export default function Home() {
                 onChange={handleChange}
                 required
                 className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+                />
+            </div>
+            <div className="w-full mb-4">
+                <label htmlFor="birthdate" className="block text-gray-700">Fecha de Nacimiento:</label>
+                <input
+                    type="date"
+                    id="birthdate"
+                    name="birthdate"
+                    value={formData.birthdate}
+                    onChange={handleChange}
+                    required
+                    max="2005-12-31" // Establecer el valor máximo para limitar las fechas hasta 2005
+                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
                 />
             </div>
             <div className="mb-4">
