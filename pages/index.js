@@ -1,4 +1,5 @@
 // import { useState } from 'react';
+import Head from 'next/head';
 import "tailwindcss/tailwind.css";
 import axios from "axios"; // Importa Axios
 import React, { useState, useEffect } from "react";
@@ -122,7 +123,12 @@ export default function Home() {
   }, []);
 
   return (
+  
     <div className="max-w-screen-md mx-auto">
+      <Head>
+        <title>AWS Community Day Ecuador</title>
+        <meta name="description" content="Evento Organizado por la comunidad de AWS UG Ecuador" />
+      </Head>
       <img src="https://assets.awsugecuador.com/assets/banner1.png" />
       <br />
       <div className="max-w-screen-md max-w-md p-4 shadow-xl">
