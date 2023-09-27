@@ -76,6 +76,7 @@ export default function Home() {
           pais: formData.country,
           ciudad: formData.city,
           profesion: formData.userType,
+          company:formData.company,
           terms: "True",
         },
       };
