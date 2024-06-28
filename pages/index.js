@@ -167,8 +167,8 @@ export default function Home() {
       <img src="https://assets.awsugecuador.com/assets/banner1.png" />
       <br />
       <div className="max-w-screen-md max-w-md p-4 shadow-xl">
-        <h3 className='text-2xl font-semibold mb-4 text-center'>Únete al AWS Community Day Ecuador - 2ª Edición!</h3>
-        <p>
+        <h3 className='text-2xl font-semibold mb-4 text-center'>Únete al AWS Community Day Ecuador</h3>
+        <p className='text-wrap'>
           Ven y disfruta de un día lleno de aprendizaje, networking y diversión. Conoce a profesionales y entusiastas como tú y sé parte de nuestra vibrante comunidad. <b>¡No te lo pierdas!</b>
           <br /> <br />
           Únete a nuestro grupo de WhatsApp para más detalles y novedades: <a href='https://chat.whatsapp.com/C5KRguNCZQUAFqpO9aJlxb' target='_blank' className='font-bold'>Click aquí</a>
