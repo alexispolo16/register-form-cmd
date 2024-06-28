@@ -428,7 +428,7 @@ export default function Home() {
               Revisa aquí nuestro{" "}
               <a
                 style={{ color: "#f8991d" }}
-                href="https://communityday.awsecuador.com/codigo-de-conducta/"
+                href="https://communityday.awsugecuador.com/codigo-de-conducta/"
                 target="_blank"
               >
                 Código de conducta
@@ -436,7 +436,7 @@ export default function Home() {
               y{" "}
               <a
                 style={{ color: "#f8991d" }}
-                href="https://communityday.awsecuador.com/terminos-y-condiciones/"
+                href="https://communityday.awsugecuador.com/terminos-y-condiciones/"
                 target="_blank"
               >
                 Términos y condiciones
