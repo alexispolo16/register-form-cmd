@@ -82,7 +82,7 @@ export default function Home() {
       };
 
       const response = await axios.post(
-        "https://gm2kcw3s21.execute-api.us-east-1.amazonaws.com/register",
+        "https://w0ucj83sp0.execute-api.us-east-1.amazonaws.com/dev/register",
         jsonPayload,
         {
           headers: {
