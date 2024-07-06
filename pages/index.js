@@ -11,7 +11,6 @@ export default function Home() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    cedula: "",
     email: "",
     phone: "",
     userType: "student",
@@ -68,7 +67,6 @@ export default function Home() {
         ticketQty: 1,
         email: formData.email,
         personalInfo: {
-          cedula: formData.cedula,
           nombre: formData.firstName,
           apellido: formData.lastName,
           birthdate: formData.birthdate,
@@ -222,20 +220,18 @@ export default function Home() {
 
           <div className="flex flex-wrap -mx-2">
             <div className="w-full md:w-1/2 px-2 mb-4">
-              <label htmlFor="cedula" className="block text-gray-700">
-                Cédula:
-              </label>
-              <input
-                type="text"
-                id="cedula"
-                name="cedula"
-                value={formData.cedula}
-                onChange={handleChange}
-                required
-                pattern="[0-9]{8,11}"
-                title="La cédula es un campo único y será validado al momento de ingresar al evento."
-                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
-              />
+            <label htmlFor="email" className="block text-gray-700">
+              Email:
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+            />
             </div>
             <div className="w-full md:w-1/2 px-2 mb-4">
               <label htmlFor="phone" className="block text-gray-700">
@@ -251,20 +247,6 @@ export default function Home() {
                 className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
               />
             </div>
-          </div>
-          <div className="w-full mb-4">
-            <label htmlFor="email" className="block text-gray-700">
-              Email:
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
-            />
           </div>
           <div className="w-full mb-4">
             <label htmlFor="birthdate" className="block text-gray-700">
